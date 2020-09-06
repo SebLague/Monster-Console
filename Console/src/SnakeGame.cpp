@@ -1,5 +1,5 @@
 #include "SnakeGame.h"
-#include "Arduino.h"
+#include <Arduino.h>
 #include "../Engine.h"
 
 SnakeGame::SnakeGame() {
