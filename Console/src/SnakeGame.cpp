@@ -1,5 +1,5 @@
 #include "SnakeGame.h"
-#include "Arduino.h"
+#include <Arduino.h>
 #include "../Engine.h"
 
 SnakeGame::SnakeGame() {
@@ -149,7 +149,10 @@ void SnakeGame::placeFood() {
 	int randomIndex = random(0, numTiles);
 
 	// Create map of tiles occupied by snake
-	bool occupancyMap[numTiles] = {false};
+	bool occupancyMap[numTiles];
+
+	std::fill_n(occupancyMap, numTiles, false);
+
 	for (int i = 0; i < snakeLength; i ++) {
 		int snakeIndex = y[i] * width + x[i];
 		occupancyMap[snakeIndex] = true;

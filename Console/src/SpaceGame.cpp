@@ -1,5 +1,5 @@
 #include "SpaceGame.h"
-#include "Arduino.h"
+#include <Arduino.h>
 
 SpaceGame::SpaceGame() {
 	playerPos.x = 1;
@@ -88,7 +88,7 @@ void SpaceGame::updateLoop(Engine& engine) {
 	// Handle enemy spawning
 	timeToNextEnemySpawn -= engine.deltaTime;
 	if (timeToNextEnemySpawn <= 0) {
-		float difficultyPercent = min(1, elapsedTime / difficultyDuration);
+		float difficultyPercent = min((float)1, elapsedTime / difficultyDuration);
 		float randomSeconds = .5;
 		float randomT = (random(randomSeconds * 10)-randomSeconds*5)/(randomSeconds * 5);
 		timeToNextEnemySpawn = spawnDelayStart + (spawnDelayEnd - spawnDelayStart) * difficultyPercent + randomT;
